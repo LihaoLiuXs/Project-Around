@@ -18,7 +18,7 @@ const (
 	INDEX    = "around"
 	TYPE     = "post"
 	// Needs to update
-	//PROJECT_ID = "around-xxx"
+	//PROJECT_ID = "around-230220"
 	//BT_INSTANCE = "around-post"
 	// Needs to update this URL when I deploy it to cloud.
 	ES_URL = "http://35.202.21.239:9200"
@@ -86,6 +86,8 @@ func handlerPost(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 		return
 	}
+
+	fmt.Fprintf(w, "Post received: %s\n", p.Message)
 
 	uid := uuid.New()
 	id := uid.String()
