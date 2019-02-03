@@ -139,6 +139,7 @@ func handlerPost(w http.ResponseWriter, r *http.Request) {
 
 	// Parse from form data.
 	fmt.Printf("Received one post request %s\n", r.FormValue("message"))
+	fmt.Fprintf(w, "Post received: %s\n", r.FormValue("message"))
 
 	lat, _ := strconv.ParseFloat(r.FormValue("lat"), 64)
 	lon, _ := strconv.ParseFloat(r.FormValue("lon"), 64)
@@ -290,6 +291,7 @@ func handlerSearch(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Query took %d milliseconds\n", searchResult.TookInMillis)
 	// TotalHits is another convenience function that works even when something goes wrong.
 	fmt.Printf("Found a total of %d post\n", searchResult.TotalHits())
+	fmt.Fprintf(w, "Found a total of %d post\n", searchResult.TotalHits())
 
 	//making a refliction to get the research result
 	var typ Post
