@@ -30,7 +30,7 @@ const (
 	PROJECT_ID  = "around-230220"
 	BT_INSTANCE = "around-post"
 	// Needs to update this URL when I deploy it to cloud.
-	ES_URL = "http://35.225.196.88:9200"
+	ES_URL = "http://104.154.155.226:9200"
 
 	BUCKET_NAME = "post-images-230220"
 )
@@ -291,11 +291,11 @@ func handlerSearch(w http.ResponseWriter, r *http.Request) {
 	fmt.Printf("Query took %d milliseconds\n", searchResult.TookInMillis)
 	// TotalHits is another convenience function that works even when something goes wrong.
 	fmt.Printf("Found a total of %d post\n", searchResult.TotalHits())
-	fmt.Fprintf(w, "Found a total of %d post\n", searchResult.TotalHits())
 
 	//making a refliction to get the research result
 	var typ Post
 	var ps []Post
+
 	for _, item := range searchResult.Each(reflect.TypeOf(typ)) { // instance of
 		p := item.(Post) // p = (Post) item
 		fmt.Printf("Post by %s: %s at lat %v and lon %v\n", p.User, p.Message, p.Location.Lat, p.Location.Lon)
