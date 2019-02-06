@@ -279,6 +279,8 @@ func handlerSearch(w http.ResponseWriter, r *http.Request) {
 		Index(INDEX).
 		Query(q).
 		Pretty(true).
+		From(0).
+		Size(50).
 		Do()
 	if err != nil {
 		// Handle error
