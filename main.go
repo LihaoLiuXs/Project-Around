@@ -178,9 +178,6 @@ func handlerPost(w http.ResponseWriter, r *http.Request) {
 
 	// Save to ES.
 	saveToES(p, id)
-
-	// Save to BigTable.
-	//saveToBigTable(p, id)
 }
 
 // Save an image to GCS.
